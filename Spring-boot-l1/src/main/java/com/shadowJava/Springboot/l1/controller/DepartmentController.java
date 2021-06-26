@@ -18,7 +18,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments")
-    public List<Department> fetchDepartmentList() {
+    public List<Department> fetchDepartmentList() { // return list of Department
         return departmentService.fetchDepartmentList();
     }
 
@@ -28,8 +28,13 @@ public class DepartmentController {
     }
 
     @DeleteMapping("/departments/{id}")
-    public String deleteDepartmentById(@PathVariable("id") Long departmentId){
+    public String deleteDepartmentById(@PathVariable("id") Long departmentId){ // return String
         departmentService.deleteDepartmentById(departmentId);
         return "Department deleted Successfully";
+    }
+
+    @PutMapping("/departments/{id}")
+    public Department updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department) { // return Department object
+        return departmentService.updateDepartment(departmentId, department);
     }
 }
