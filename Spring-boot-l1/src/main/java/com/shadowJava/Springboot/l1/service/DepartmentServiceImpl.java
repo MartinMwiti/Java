@@ -1,12 +1,14 @@
 package com.shadowJava.Springboot.l1.service;
 
 import com.shadowJava.Springboot.l1.entity.Department;
+import com.shadowJava.Springboot.l1.error.DepartmentNotFoundException;
 import com.shadowJava.Springboot.l1.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService{
@@ -24,8 +26,16 @@ public class DepartmentServiceImpl implements DepartmentService{
     }
 
     @Override
-    public Department fetchDepartmentById(Long departmentId) {
-        return departmentRepository.findById(departmentId).get();
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException {
+        // A container object which may or may not contain a non-null value. If a value is present, isPresent() returns true. If no value is present, the object is considered empty and isPresent() returns false.
+        Optional<Department> department = departmentRepository.findById(departmentId);
+        // if the record doesn't exist throw exception error
+
+        if(!department.isPresent()) {
+            throw new DepartmentNotFoundException("Department Not available");
+        }
+
+        return department.get(); // if you have found the record
     }
 
     @Override
