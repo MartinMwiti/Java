@@ -13,5 +13,4 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
     // Allow passing of either small or capital letter
     public Department findByDepartmentNameIgnoreCase(String departmentName);
 
-
 }
