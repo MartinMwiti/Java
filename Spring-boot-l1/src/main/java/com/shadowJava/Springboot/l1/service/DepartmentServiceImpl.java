@@ -27,7 +27,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException {
-        // A container object which may or may not contain a non-null value. If a value is present, isPresent() returns true. If no value is present, the object is considered empty and isPresent() returns false.
+        // Optional: A container object which may or may not contain a non-null value. If a value is present, isPresent() returns true. If no value is present, the object is considered empty and isPresent() returns false.
         Optional<Department> department = departmentRepository.findById(departmentId);
         // if the record doesn't exist throw exception error
 
