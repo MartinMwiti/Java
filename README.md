@@ -1,6 +1,6 @@
 # Java
 ### Terminal CMD
-```mvn clean install``
+```mvn clean install```
 
 ```cd ./target```
 <!-- Picking profile -->
