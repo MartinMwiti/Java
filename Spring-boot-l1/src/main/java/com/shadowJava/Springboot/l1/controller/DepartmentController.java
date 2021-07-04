@@ -19,7 +19,7 @@ public class DepartmentController {
     private final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
 
     @PostMapping("/departments")
-    public Department saveDepartment(@Valid @RequestBody Department department){ // Converted incoming json POST request to Department object using RequestBody. Purpose if @Valid is to make sure the incoming JSON body from POST is validated against the @NotBlank(message = "Please Add Department Name") annotation
+    public Department saveDepartment(@Valid @RequestBody Department department){ // @RequestBody Converted incoming json POST request to Department object using RequestBody. Purpose if @Valid is to make sure the incoming JSON body from POST is validated against the @NotBlank(message = "Please Add Department Name") annotation in the entity.
 
         // If you want to log whenever request come in to saveDepartment
         LOGGER.info("Inside saveDepartment of DepartmentController");

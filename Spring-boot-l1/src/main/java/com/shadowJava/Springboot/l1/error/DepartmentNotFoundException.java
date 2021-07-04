@@ -1,6 +1,7 @@
 package com.shadowJava.Springboot.l1.error;
 
 public class DepartmentNotFoundException extends Exception{
+//    Constructor
     public DepartmentNotFoundException() {
         super();
     }
